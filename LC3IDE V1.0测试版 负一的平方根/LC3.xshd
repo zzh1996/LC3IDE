@@ -1,0 +1,69 @@
+<SyntaxDefinition name="LC3"
+        xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+    <Color name="Comment" foreground="DimGray" />
+    <Color name="String" foreground="Brown" />
+
+    <!-- This is the main ruleset. -->
+    <RuleSet ignoreCase="true">
+        <Span color="Comment" begin=";" />
+
+        <Span color="String">
+            <Begin>"</Begin>
+            <End>"</End>
+            <RuleSet>
+                <!-- nested span for escape sequences -->
+                <Span begin="\\" end="." />
+            </RuleSet>
+        </Span>
+
+        <Keywords fontWeight="bold" foreground="Blue">
+            <Word>.ORIG</Word>
+            <Word>.FILL</Word>
+            <Word>.BLKW</Word>
+            <Word>.END</Word>
+            <Word>.STRINGZ</Word>
+            <Word>ADD</Word>
+            <Word>AND</Word>
+            <Word>JMP</Word>
+            <Word>JSR</Word>
+            <Word>JSRR</Word>
+            <Word>LD</Word>
+            <Word>LDI</Word>
+            <Word>LDR</Word>
+            <Word>LEA</Word>
+            <Word>NOT</Word>
+            <Word>RET</Word>
+            <Word>RTI</Word>
+            <Word>ST</Word>
+            <Word>STI</Word>
+            <Word>STR</Word>
+            <Word>TRAP</Word>
+            <Word>GETC</Word>
+            <Word>OUT</Word>
+            <Word>PUTS</Word>
+            <Word>IN</Word>
+            <Word>PUTSP</Word>
+            <Word>HALT</Word>
+            <Word>BR</Word>
+            <Word>BRn</Word>
+            <Word>BRz</Word>
+            <Word>BRp</Word>
+            <Word>BRnz</Word>
+            <Word>BRnp</Word>
+            <Word>BRzp</Word>
+            <Word>BRnzp</Word>
+
+            <!-- ... -->
+        </Keywords>
+        
+        <Rule fontWeight="bold" foreground="DarkGreen">
+            \bR[0-7]\b
+        </Rule>
+
+        <!-- Digits -->
+        <Rule foreground="Red">
+            \b[xX][0-9a-fA-F]+\b
+        |   \b[0-9]+\b
+        </Rule>
+    </RuleSet>
+</SyntaxDefinition>
